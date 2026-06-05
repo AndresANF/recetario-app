@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id_usuario    Int      @id @default(autoincrement())
+  name          String
+  email         String   @unique
+  password      String
+  recipes       Recipe[]
+  createdGroups Group[]  @relation("GroupCreator")
+  joinedGroups  Group[]  @relation("GroupMembers")
+}
+
+model Recipe {
+  id_receta   Int      @id @default(autoincrement())
+  title       String
+  ingredients String
+  steps       String
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id_usuario], onDelete: Cascade)
+  groups      Group[]
+}
+
+model Group {
+  id_grupo    Int      @id @default(autoincrement())
+  name        String
+  userId      Int
+  creator     User     @relation("GroupCreator", fields: [userId], references: [id_usuario], onDelete: Cascade)
+  members     User[]   @relation("GroupMembers")
+  recipes     Recipe[]
+}
