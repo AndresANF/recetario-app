@@ -63,7 +63,6 @@ export const GroupDetailScreen = ({ route, navigation }) => {
     }
   };
 
-  // --- AQUÍ ESTÁN LOS MENSAJES ACTUALIZADOS ---
   const handleDeleteOrLeaveGroup = () => {
     const title = isOwner ? "Borrar Grupo" : "Salir del Grupo";
     const message = isOwner 

@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 
 export const RecipeDetailScreen = ({ route, navigation }) => {
   const { recipe } = route.params;
-
-  // Función mágica para separar el texto por saltos de línea y quitar espacios en blanco extra
   const formatList = (text) => {
     if (!text) return [];
     return text.split('\n').filter(item => item.trim() !== '');
@@ -92,7 +90,6 @@ const styles = StyleSheet.create({
   sectionTitle: { fontSize: 20, fontWeight: 'bold', color: '#444', marginBottom: 10 },
   card: { backgroundColor: '#fff', padding: 20, borderRadius: 15, elevation: 3, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, shadowRadius: 5 },
   
-  // ESTILOS PARA LAS LISTAS
   listItem: { flexDirection: 'row', marginBottom: 12, alignItems: 'flex-start' },
   bullet: { fontSize: 18, color: '#007bff', marginRight: 10, lineHeight: 24, fontWeight: 'bold' },
   number: { fontSize: 16, color: '#007bff', marginRight: 10, lineHeight: 24, fontWeight: 'bold', minWidth: 22 },

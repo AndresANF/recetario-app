@@ -14,7 +14,6 @@ export const GroupScreen = ({ navigation }) => {
       const response = await fetch(`${API_URL}/groups`);
       if (response.ok) {
         const data = await response.json();
-        // MAGIA AQUÍ: Ordenamos alfabéticamente por el nombre del grupo
         data.sort((a, b) => a.name.localeCompare(b.name));
         setGroups(data);
       }

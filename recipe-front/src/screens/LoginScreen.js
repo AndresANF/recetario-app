@@ -3,7 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, KeyboardAvo
 import { AuthContext } from '../context/AuthContext';
 
 export const LoginScreen = ({ navigation }) => {
-  // Restauramos tu función 'login' original aquí
   const { login, API_URL } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +14,6 @@ export const LoginScreen = ({ navigation }) => {
     }
 
     try {
-      // Usamos la nueva ruta de auth que creamos en el backend
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -25,7 +23,7 @@ export const LoginScreen = ({ navigation }) => {
       const data = await response.json();
       
       if (response.ok) {
-        login(data); // ¡Usamos tu función original para guardar la sesión!
+        login(data); 
       } else {
         Alert.alert('Error', data.error || 'Credenciales inválidas');
       }

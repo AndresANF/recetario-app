@@ -81,7 +81,6 @@ export const ProfileScreen = ({ navigation }) => {
               
               if (response.ok) {
                 Alert.alert('Cuenta eliminada', 'Tu cuenta ha sido borrada del sistema.');
-                // Cerramos sesión (pasando null o vacío a tu función login para limpiar el estado)
                 login(null); 
               } else {
                 Alert.alert('Error', 'No se pudo borrar la cuenta');

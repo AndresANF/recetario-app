@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
 
   // Esta IP (10.0.2.2) es para el emulador de Android. 
   // SI USAS TELÉFONO FÍSICO (Expo Go), cámbiala por la IP de tu PC (ej: 192.168.1.X)
-  const API_URL = 'http://172.16.0.42:3000/api';
+  const API_URL = 'https://recetario-app-p56p.onrender.com/api';
 
   const login = (user) => {
     setCurrentUser(user);
